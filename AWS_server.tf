@@ -37,7 +37,7 @@ resource "aws_instance" "Amazon_Linux" {
 
    resource "aws_key_pair" "ssh-key" {
     key_name   = "id_rsa"
-    public_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDcmQW1thpKV/6wZcTmVKx00MyrZeEaUWHAghzGVmZAJgI0ME+jQ7Fl+G/ySv1vKAixHbcndCjMlXz0ZLiS6O8Lnpfok5/h6YFs6cueFBtK+Ups3ykQgTNb1+s2KKSopCHDGQARvAXsp/KeIyyiNCmbRZFWv+q04Db4NM/CjKy6bp3ZmECVv/0PuLoN8NIUWkeDRsOXyO0U29WhCNcZTLWRazrrVIRUWLy41Sby4gsVtcv/NKxsoqpKCT+T1OGV1CmbOFg6Z4ScN/2SyZydgxZ3Ugw66JGbN+0VNyC0S2pkHJvRaIYL1lRYFp8QsG6c21qTMme8DIdSjjnZTnONn7DPKnuQ1cgtjFXNZo+EIUrrikjiYGyZVOC1pbEWYo5Wu/OB0/gW9N0HKTtDlfjJmMR+uu4YxoZRIMKcSpM9KzbAxKirBueCJ3AGboVfOZkwgCajiuAYMe7M6LXLSSjWjttZF4K8JR8Z84vfezP9ye54sHKbhzJn/sNC/yejD9hFGwE="
+    public_key = ""
    }
 
 resource "aws_security_group" "app" {
