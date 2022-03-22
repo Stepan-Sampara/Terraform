@@ -1,6 +1,5 @@
 provider "aws" {
   region = "us-west-2"
-  profile = "aws"
 }
 resource "aws_instance" "Ubuntu" {
   ami = "ami-074251216af698218"
