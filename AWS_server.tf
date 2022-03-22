@@ -1,7 +1,13 @@
 provider "aws" {
   region = "us-west-2"
   shared_credentials_file = "/root/.aws/credentials"
+  public_key = file("/home/step/.ssh/id_rsa.pub")
   profile = "aws"
+}
+
+resource "my_ssh_key" "default" {
+  name       = "Key_pub"
+  public_key = file("/home/step/.ssh/id_rsa.pub")
 }
 resource "aws_instance" "Ubuntu" {
   ami = "ami-074251216af698218"
@@ -37,7 +43,7 @@ resource "aws_instance" "Amazon_Linux" {
 
    resource "aws_key_pair" "ssh-key" {
     key_name   = "id_rsa"
-    public_key = ""
+    ssh_keys = [my_ssh_key.default.fingerprint]
    }
 
 resource "aws_security_group" "app" {
