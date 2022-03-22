@@ -1,6 +1,7 @@
 provider "aws" {
   region = "us-west-2"
   shared_credentials_file = "/root/.aws/credentials"
+  profile = "aws"
 }
 resource "aws_instance" "Ubuntu" {
   ami = "ami-074251216af698218"
