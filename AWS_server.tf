@@ -1,12 +1,11 @@
 provider "aws" {
   region = "us-west-2"
   shared_credentials_file = "/root/.aws/credentials"
-  public_key = file("/home/step/.ssh/id_rsa.pub")
   profile = "aws"
 }
 
 resource "my_ssh_key" "default" {
-  name       = "Key_pub"
+  name       = "key_pub"
   public_key = file("/home/step/.ssh/id_rsa.pub")
 }
 resource "aws_instance" "Ubuntu" {
@@ -14,7 +13,7 @@ resource "aws_instance" "Ubuntu" {
   instance_type = "t2.micro"
   vpc_security_group_ids = ["${aws_security_group.app.id}"]
   user_data = file("user_data.sh")
-  key_name  = "id_rsa"
+  key_name  = "key_pub"
   tags = {
     Name = "Ubuntu_tomcat"
     Owner = "Stepan Sampara"
@@ -26,9 +25,9 @@ resource "aws_instance" "Amazon_Linux" {
   instance_type = "t2.micro"
   vpc_security_group_ids = ["${aws_security_group.app.id}"]
   user_data = file("CentOS.sh")
-  key_name  = "id_rsa"
+  key_name  = "key_pub"
   tags = {
-    NAME = "CentOS_Postgre" 
+    Name = "CentOS_Postgre" 
     Owner = "Stepan Sampara"
   }
 #  connection {
