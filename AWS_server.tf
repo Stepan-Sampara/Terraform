@@ -5,7 +5,7 @@ provider "aws" {
 }
 
 resource "my_ssh_key" "default" {
-  name       = "key_pub"
+  name       = "id_rsa"
   public_key = file("/home/step/.ssh/id_rsa.pub")
 }
 resource "aws_instance" "Ubuntu" {
@@ -13,7 +13,7 @@ resource "aws_instance" "Ubuntu" {
   instance_type = "t2.micro"
   vpc_security_group_ids = ["${aws_security_group.app.id}"]
   user_data = file("user_data.sh")
-  key_name  = "key_pub"
+  key_name  = "id_rsa"
   tags = {
     Name = "Ubuntu_tomcat"
     Owner = "Stepan Sampara"
@@ -25,7 +25,7 @@ resource "aws_instance" "Amazon_Linux" {
   instance_type = "t2.micro"
   vpc_security_group_ids = ["${aws_security_group.app.id}"]
   user_data = file("CentOS.sh")
-  key_name  = "key_pub"
+  key_name  = "id_rsa"
   tags = {
     Name = "CentOS_Postgre" 
     Owner = "Stepan Sampara"
