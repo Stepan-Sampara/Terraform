@@ -42,7 +42,7 @@ resource "aws_instance" "Amazon_Linux" {
 
    resource "aws_key_pair" "ssh-key" {
     key_name   = "id_rsa"
-    ssh_keys = [my_ssh_key.default.fingerprint]
+    public_key = [my_ssh_key.default.fingerprint]
    }
 
 resource "aws_security_group" "app" {
