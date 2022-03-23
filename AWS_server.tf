@@ -2,6 +2,7 @@ provider "aws" {
   region = "us-west-2"
   profile = "aws"
 }
+
 resource "aws_instance" "Ubuntu" {
   ami = "ami-074251216af698218"
   instance_type = "t2.micro"
@@ -21,7 +22,7 @@ resource "aws_instance" "Amazon_Linux" {
   user_data = file("CentOS.sh")
   key_name  = "ec2-key"
   tags = {
-    NAME = "CentOS_Postgre" 
+    Name = "CentOS_Postgre" 
     Owner = "Stepan Sampara"
   }
 }
